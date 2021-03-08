@@ -19,6 +19,7 @@ public class Menu {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TB_MENU_SEQ")
+    @Column(name = "menu_id")
     private Long id;
 
     private String menuName;

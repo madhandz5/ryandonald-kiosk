@@ -1,9 +1,12 @@
 package ryan.donald.module.account;
 
 import lombok.*;
+import ryan.donald.module.cart.Cart;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -36,6 +39,9 @@ public class Account {
     private String emailCheckToken;
     private LocalDateTime emailCheckTokenGeneratedAt;
     private LocalDateTime joinedAt;
+
+    @OneToMany(mappedBy = "account")
+    private List<Cart> cartList = new ArrayList<>();
 
 
     public void generateEmailCheckToken() {

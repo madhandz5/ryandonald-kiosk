@@ -13,7 +13,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeRequests()
                 .mvcMatchers("/", "/account/sign-up").permitAll()
-                .mvcMatchers("/menu/reg-menu").permitAll()
+                .mvcMatchers("/admin/**").permitAll()
+                .mvcMatchers("/page/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable();

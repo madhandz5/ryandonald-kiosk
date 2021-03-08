@@ -7,6 +7,7 @@ import ryan.donald.module.menu.form.RegMenuForm;
 
 import javax.validation.Valid;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -15,7 +16,6 @@ public class MenuService {
     private final MenuRepository menuRepository;
 
     public Menu regMenu(@Valid RegMenuForm regMenuForm) {
-        System.out.println("regMenuForm.getMenuCategory() = " + regMenuForm.getMenuCategory());
         Menu menu = Menu.builder()
                 .menuName(regMenuForm.getMenuName())
                 .price(regMenuForm.getPrice())
@@ -24,4 +24,9 @@ public class MenuService {
                 .build();
         return menuRepository.save(menu);
     }
+
+    public List<Menu> getAllMenus() {
+        return menuRepository.findAll();
+    }
+
 }

@@ -1,4 +1,4 @@
-package ryan.donald.module.menu;
+package ryan.donald.module.admin;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -7,14 +7,15 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ryan.donald.module.menu.MenuService;
 import ryan.donald.module.menu.form.RegMenuForm;
 
 import javax.validation.Valid;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping(value = "/menu")
-public class MenuController {
+@RequestMapping(value = "/admin")
+public class AdminController {
     private final MenuService menuService;
 
     @GetMapping(value = "/reg-menu")
@@ -30,7 +31,7 @@ public class MenuController {
             return "admin/reg-menu";
         }
         menuService.regMenu(regMenuForm);
-        return "redirect:/";
+        return "admin/reg-menu";
     }
 
 
