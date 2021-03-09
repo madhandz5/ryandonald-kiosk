@@ -15,6 +15,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers("/", "/account/sign-up").permitAll()
                 .mvcMatchers("/admin/**").permitAll()
                 .mvcMatchers("/page/**").permitAll()
+                .mvcMatchers("/cart/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable();

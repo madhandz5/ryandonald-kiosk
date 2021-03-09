@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ryan.donald.module.cart.form.CartForm;
 import ryan.donald.module.menu.Menu;
 import ryan.donald.module.menu.MenuService;
 
@@ -21,6 +22,7 @@ public class PageController {
     public String home(Model model) {
         List<Menu> menuList = menuService.getAllMenus();
         model.addAttribute("menuList", menuList);
+        model.addAttribute(new CartForm());
         return "page/home";
     }
 }

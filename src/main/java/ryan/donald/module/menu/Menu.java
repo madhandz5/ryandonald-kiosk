@@ -24,6 +24,7 @@ public class Menu {
 
     private String menuName;
     private int price;
+    private String menuImage;
     private LocalDateTime registeredAt;
 
     @Enumerated(EnumType.STRING)

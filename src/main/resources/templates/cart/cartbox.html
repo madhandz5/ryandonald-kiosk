@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .cart-box {
+            text-align: center;
+        }
+
+        .cart-image {
+            height: 100px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<h1>Check Your Cart</h1>
+<table class="cart-box" border="1">
+    <thead>
+    <tr>
+        <td>
+            Index
+        </td>
+        <td>
+            Menu name
+        </td>
+        <td>
+            Price
+        </td>
+        <td>
+            Image
+        </td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cart, index : ${cartList}">
+        <td th:text="${index.index+1}"></td>
+        <td th:text="${cart.getMenuName()}"></td>
+        <td th:text="${cart.getPrice()}"></td>
+        <td><img class="cart-image" th:src="${cart.getMenuImage()}" th:alt="${cart.getMenuName()}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -17,6 +17,7 @@
         <label>
             <input type="text" placeholder="menu name" name="menuName">
             <input type="text" placeholder="price" name="price">
+            <input type="text" placeholder="menu image" name="menuImage">
             <select name="menuCategory">
                 <option th:each="categoryValue : ${T(ryan.donald.module.menu.MenuCategory).values()}"
                         th:value="${categoryValue.name()}"

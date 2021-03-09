@@ -8,5 +8,6 @@ public class RegMenuForm {
 
     private String menuName;
     private int price;
+    private String menuImage;
     private MenuCategory menuCategory;
 }

@@ -3,13 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .menu-pan {
+            text-align: center;
+        }
+
+        .menu-image {
+            width: 200px;
+            height: 100px;
+        }
+    </style>
 </head>
 <body>
 <div>
-    <div th:each="menu : ${menuList}">
-        <span th:text="${menu.getMenuName()}"></span>
-        <span th:text="${menu.getPrice()}"></span>
-    </div>
+    <form action="/cart/input-cart" method="post">
+        <table class="menu-pan" border="1">
+            <thead>
+            <tr>
+                <td>
+                    Select
+                </td>
+                <td>
+                    Menu Name
+                </td>
+                <td>
+                    Price
+                </td>
+                <td>
+                    Image
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="menu : ${menuList}">
+                <td>
+                    <label>
+                        <input type="checkbox" name="menus" th:value="${menu.getId()}">
+                    </label>
+                </td>
+                <td th:text="${menu.getMenuName()}"></td>
+                <td th:text="${menu.getPrice()}"></td>
+                <td><img class="menu-image" th:src="${menu.getMenuImage()}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <button type="submit">Cart</button>
+    </form>
 </div>
 </body>
 </html>

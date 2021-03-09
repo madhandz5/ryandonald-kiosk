@@ -7,6 +7,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ryan.donald.module.menu.Menu;
 import ryan.donald.module.menu.MenuService;
 import ryan.donald.module.menu.form.RegMenuForm;
 
@@ -25,12 +26,12 @@ public class AdminController {
     }
 
     @PostMapping(value = "/reg-menu")
-    public String regMenu(@Valid RegMenuForm regMenuForm, Errors errors) {
-        System.out.println("regMenuForm = " + regMenuForm);
+    public String regMenu(@Valid RegMenuForm regMenuForm, Errors errors, Model model) {
         if (errors.hasErrors()) {
             return "admin/reg-menu";
         }
-        menuService.regMenu(regMenuForm);
+        Menu newMenu = menuService.regMenu(regMenuForm);
+        model.addAttribute("newMenu", newMenu);
         return "admin/reg-menu";
     }
 

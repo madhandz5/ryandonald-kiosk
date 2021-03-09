@@ -19,14 +19,13 @@ public class MenuService {
         Menu menu = Menu.builder()
                 .menuName(regMenuForm.getMenuName())
                 .price(regMenuForm.getPrice())
+                .menuImage(regMenuForm.getMenuImage())
                 .menuCategory(MenuCategory.valueOf(String.valueOf(regMenuForm.getMenuCategory())))
                 .registeredAt(LocalDateTime.now())
                 .build();
         return menuRepository.save(menu);
     }
-
     public List<Menu> getAllMenus() {
         return menuRepository.findAll();
     }
-
 }
